@@ -6,37 +6,39 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-          dishes: props.dishes
-        };
+    }
+
+    renderDish(dish) {
+        if (dish != null) {
+            return(
+              <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 m-1">
+                <Card key={dish.id} onClick={()=>this.props.onClick(dish.id)}>
+                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardBody>
+                      <CardTitle>{dish.name}</CardTitle>
+                      <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+              </div>
+            );
+        }
+        return (<div></div>);
     }
 
     render() {
-        const menu = this.state.dishes.map((dish) => {
-            return (
-              <div key={dish.id} className="col-12 mt-5">
-                <Media tag="li">
-                  <Media left middle>
-                      <Media object src={dish.image} alt={dish.name} />
-                  </Media>
-                  <Media body className="ml-5">
-                    <Media heading>{dish.name}</Media>
-                    <p>{dish.description}</p>
-                  </Media>
-                </Media>
-              </div>
-            );
-        });
+      const menu = this.props.dishes.map((dish) => {
+          return (
+            this.renderDish(dish)
+          );
+      });
 
-        return (
+      return (
           <div className="container">
-            <div className="row">
-              <Media list>
+              <div className="row">
                   {menu}
-              </Media>
-            </div>
+              </div>
           </div>
-        );
+      );
     }
 }
 
