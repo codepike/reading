@@ -34,7 +34,7 @@ function RenderComments({comments}) {
   return (
     <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 m-1">
       <h4>Comments</h4>
-      <ul class="list-group">{commentList}</ul>
+      <ul class="list-unstyled">{commentList}</ul>
     </div>
   );
 }
