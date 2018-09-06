@@ -5,14 +5,17 @@ const RECEIVE_SIGNIN = "RECEIVE_SIGNIN";
 const initialState = {
   username: "",
   isLoggedIn: false,
-  token: ""
+  token: "",
+  msg: "msg"
 };
 
 function userReducer(state = initialState, action) {
   switch (action.type) {
     case SIGNIN:
-      console.log(action);
-      return state;
+      console.log("action", action);
+      return {...state,
+        msg: action.username + " : " + action.password
+      };
     case RECEIVE_SIGNIN:
       return state;
     default:

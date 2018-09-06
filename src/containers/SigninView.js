@@ -10,23 +10,29 @@ class SigninView extends React.Component {
   }
 
   render() {
+    console.log("aaa", this.props.user);
     return (
-      <Signin onSignin = {this.props.onSignin} />
+      <Signin
+        user={this.props.user}
+        onSignin = {this.props.onSignin} />
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.user
   }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    onSignin: (username, password) => {
-      console.log(username, password);
-      dispatch(signinUser(username, password));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // same effect
+        onSignin : (username, password) => {
+          console.log("username, password");
+          dispatch(signinUser(username, password));
+        }
     }
-});
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninView);
