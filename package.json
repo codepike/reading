@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -13,7 +14,8 @@
     "reactstrap": "^5.0.0",
     "redux": "^4.0.0",
     "redux-observable": "^1.0.0",
-    "rxjs": "^6.3.2"
+    "rxjs": "^6.3.2",
+    "rxjs-compat": "^6.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -6,6 +6,8 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { DISHES } from '../dishes';
 import SigninView from './SigninView';
+import SignUpView from './SignUpView';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -38,6 +40,7 @@ class Main extends React.Component {
 
        <Switch>
          <Route path="/login" component = { SigninView } />
+         <Route path="/signup" component = { SignUpView } />
          <Route path="/" component={ getMenu }/>
        </Switch>
 

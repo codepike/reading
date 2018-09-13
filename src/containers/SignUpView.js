@@ -1,18 +1,17 @@
 import React from 'react';
 import { Input } from 'reactstrap'
-import Signin from '../components/SigninComponent';
+import Signup from '../components/SignupComponent';
 import { signinUser, userInputChange } from '../redux/user';
 import { connect } from 'react-redux';
 
-class SigninView extends React.Component {
+class SignUpView extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    console.log("aaa", this.props.user);
     return (
-      <Signin
+      <Signup
         user={this.props.user}
         handleUserInputChange = {this.props.handleUserInputChange}
         onSignin = {this.props.onSignin} />
@@ -41,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigninView);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpView);
