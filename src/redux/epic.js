@@ -1,8 +1,10 @@
 import { combineEpics } from 'redux-observable';
 import { fetchUserEpic } from './user';
+import { registerEpic } from './signup';
 
 const rootEpic = combineEpics(
-  fetchUserEpic
+  fetchUserEpic,
+  registerEpic
 );
 
 export default rootEpic;

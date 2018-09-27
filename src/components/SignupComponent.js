@@ -22,11 +22,11 @@ const Signup = (props) => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="examplePassword">Password</Label>
+              <Label for="password">Password</Label>
               <Input
                 type="password"
                 name="password"
-                id="examplePassword"
+                id="password"
                 placeholder="password placeholder"
                 onChange = {props.handleUserInputChange}/>
             </FormGroup>
@@ -40,6 +40,7 @@ const Signup = (props) => {
                 placeholder="Enter your email"
                 onChange = {props.handleUserInputChange}/>
             </FormGroup>
+            <Button onClick={(event)=>props.onRegiser(event, props.user.username, props.user.password, props.user.email)}>Register</Button>
             </Form>
         </Col>
     </Container>

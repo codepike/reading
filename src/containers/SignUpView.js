@@ -1,8 +1,8 @@
 import React from 'react';
 import { Input } from 'reactstrap'
 import Signup from '../components/SignupComponent';
-import { signinUser, userInputChange } from '../redux/user';
 import { connect } from 'react-redux';
+import { userInputChange, register } from '../redux/signup';
 
 class SignUpView extends React.Component {
   constructor(props) {
@@ -12,9 +12,10 @@ class SignUpView extends React.Component {
   render() {
     return (
       <Signup
+
         user={this.props.user}
         handleUserInputChange = {this.props.handleUserInputChange}
-        onSignin = {this.props.onSignin} />
+        onRegiser = {this.props.onRegister} />
     );
   }
 }
@@ -27,15 +28,16 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // same effect
-        onSignin : (username, password) => {
-          console.log("username, password");
-          dispatch(signinUser(username, password));
-        },
+
 
         handleUserInputChange: event => {
           console.log('oooo',event);
           dispatch(userInputChange(event.target.id, event.target.value));
+        },
+
+        onRegister : (event, username, password, email) => {
+          event.preventDefault();
+          dispatch(register(username, password, email));
         }
     }
 };
