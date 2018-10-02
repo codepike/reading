@@ -7,6 +7,7 @@ import Footer from './FooterComponent';
 import { DISHES } from '../dishes';
 import SigninView from './SigninView';
 import SignUpView from './SignUpView';
+import EditBook from './EditBook';
 
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ import {
 const getMenu = () => {
   return  <Menu dishes={DISHES} onClick={(dishId)=>this.onDishSelect(dishId)} />;
 };
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -38,11 +40,12 @@ class Main extends React.Component {
        <div>
          <Header />
 
-       <Switch>
-         <Route path="/login" component = { SigninView } />
-         <Route path="/signup" component = { SignUpView } />
-         <Route path="/" component={ getMenu }/>
-       </Switch>
+         <Switch>
+           <Route path="/login" component = { SigninView } />
+           <Route path="/signup" component = { SignUpView } />
+           <Route path="/edit" component = { EditBook } />
+           <Route path="/" component={ getMenu }/>
+         </Switch>
 
        </div>
                 // <Header />

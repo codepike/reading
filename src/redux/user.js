@@ -85,7 +85,7 @@ export function fetchUserEpic(action$, state$, {makeRequest}) {
       const url = 'http://planet-env.3wypf3dzzp.us-east-2.elasticbeanstalk.com/auth/login';
 
       return ajax({
-          type: "POST",
+          method: "POST",
           url:url,
           body: body,
           headers: {'Content-Type': 'application/json' }})
