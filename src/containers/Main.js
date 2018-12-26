@@ -11,6 +11,7 @@ import BooksView from './BookView';
 import BookScreen from './BookScreen'
 import Editor from './Editor'
 import Books from './Books'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -40,6 +41,7 @@ class Main extends React.Component {
            <Route exact path="/admin/manage" component={Editor} />
            <Route path="/" component={ Books }/>
          </Switch>
+
        </div>
     );
   }
