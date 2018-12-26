@@ -1,10 +1,16 @@
 import { combineEpics } from 'redux-observable';
 import { fetchUserEpic } from './user';
-import { registerEpic } from './signup';
+import { fetchBookEpic } from './book'
+import { fetchBooksEpic } from './bookshelf';
+import { addCoverEpic, createBookEpic } from './edit';
 
 const rootEpic = combineEpics(
+  addCoverEpic,
+  createBookEpic,
   fetchUserEpic,
-  registerEpic
+  fetchBookEpic,
+  fetchBooksEpic,
+
 );
 
 export default rootEpic;

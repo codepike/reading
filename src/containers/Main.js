@@ -7,7 +7,10 @@ import Footer from './FooterComponent';
 import { DISHES } from '../dishes';
 import SigninView from './SigninView';
 import SignUpView from './SignUpView';
-import EditBook from './EditBook';
+import BooksView from './BookView';
+import BookScreen from './BookScreen'
+import Editor from './Editor'
+import Books from './Books'
 
 import {
   BrowserRouter as Router,
@@ -24,44 +27,22 @@ const getMenu = () => {
 class Main extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      dishes: DISHES,
-      selectedDish: null
-    };
-  }
-
-  onDishSelect(dishId) {
-    this.setState({selectedDish: dishId});
   }
 
   render() {
      return (
        <div>
          <Header />
-
          <Switch>
            <Route path="/login" component = { SigninView } />
            <Route path="/signup" component = { SignUpView } />
-           <Route path="/edit" component = { EditBook } />
-           <Route path="/" component={ getMenu }/>
+           <Route exact path="/book/:id" component={BookScreen}/>
+           <Route exact path="/edit/:id" component={Editor} />
+           <Route exact path="/admin/manage" component={Editor} />
+           <Route path="/" component={ Books }/>
          </Switch>
 
        </div>
-                // <Header />
-         // <Switch>
-         //    <Route path="/" component={ Header } />
-         //    // <Redirect from="/old-match" to="/will-match" />
-         //    // <Route path="/will-match" component={WillMatch} />
-         //    // <Route component={NoMatch} />
-         //  </Switch>
-         // // <Menu dishes={DISHES} onClick={(dishId)=>this.onDishSelect(dishId)} />
-         // //
-         // // <DishDetail dish={this.state.dishes.filter(
-         // //   (dish)=>dish.id === this.state.selectedDish
-         // // )[0]} />
-         // <Footer />
-
     );
   }
 }

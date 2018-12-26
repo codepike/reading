@@ -44,6 +44,9 @@ class Header extends React.Component {
                 <NavLink href="/signup">Signup</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="/edit">Create1</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
