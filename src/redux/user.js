@@ -72,7 +72,7 @@ export const userInputChange = (id, value) => {
 
 export default userReducer;
 
-export function fetchUserEpic(action$, state$, {makeRequest}) {
+export function fetchUserEpic(action$, state$) {
   return action$.pipe(
     ofType(SIGNIN),
     mergeMap(action=>{
@@ -82,7 +82,9 @@ export function fetchUserEpic(action$, state$, {makeRequest}) {
         password: action.password
       }
 
-      const url = 'http://localhost:8080/api/auth/login';
+      // const url = 'http://localhost:8080/api/auth/login';
+      const url = 'http://planet-env.3wypf3dzzp.us-east-2.elasticbeanstalk.com/auth/login'
+
 
       return ajax.post(url, body, {'Content-Type': 'application/json'})
         .map(response=> receiveUser(response.response))
@@ -102,26 +104,26 @@ export function fetchUserEpic(action$, state$, {makeRequest}) {
 )
 }
 
-export function fetchUserEpic1(action$, state$, {makeRequest}) {
-  return action$.pipe(
-    ofType(SIGNIN),
-    mergeMap(action=>{
-      console.log('zzzzzzzzzzzzzz');
-      const body = {
-        usernameOrEmail: action.username,
-        password: action.password
-      }
-
-      return makeRequest('api/auth/login', 'POST', body).map(
-        (response) =>{
-           console.log("response: ", response)
-           return receiveUser(response.response);
-         }
-      );
-    }
-  )
-)
-}
+// export function fetchUserEpic1(action$, state$, {makeRequest}) {
+//   return action$.pipe(
+//     ofType(SIGNIN),
+//     mergeMap(action=>{
+//       console.log('zzzzzzzzzzzzzz');
+//       const body = {
+//         usernameOrEmail: action.username,
+//         password: action.password
+//       }
+//
+//       return makeRequest('api/auth/login', 'POST', body).map(
+//         (response) =>{
+//            console.log("response: ", response)
+//            return receiveUser(response.response);
+//          }
+//       );
+//     }
+//   )
+// )
+// }
 
 // export function fetchUserEpic(action$, state$, {makeRequest}) {
 //   return action$
