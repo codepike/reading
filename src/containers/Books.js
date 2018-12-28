@@ -7,15 +7,14 @@ import { Button, Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle, Col, Container, Input, Media, Row } from 'reactstrap';
 import { fetchBooks } from '../redux/bookshelf'
 import GridView from '../components/GridView'
+import '../App.css'
 
 function RenderBook({book, onClick}) {
   return (
-    <Card className="h-100"
-       onClick={()=>onClick(book.id)}>
-       <CardImg src={book.cover} alt={book.title} />
+    <Card className="fit-card" onClick={()=>onClick(book.id)} style={{borderColor: '#fff' }} >
+       <CardImg className="fit-img" src={book.cover} alt={book.title} />
        <CardBody>
          <CardTitle>{book.title}</CardTitle>
-         <CardText>{book.author}</CardText>
        </CardBody>
     </Card>
   );
@@ -41,8 +40,8 @@ class Books extends React.Component {
 
     const gridView = this.props.books.books.map(book => {
       return (
-        <Col md="3">
-          <Book key={book.id} book={book} onClick={this.showBook.bind(this)}/>
+        <Col md="3" key={book.id}>
+          <Book book={book} onClick={this.showBook.bind(this)}/>
         </Col>
       )}
     );
