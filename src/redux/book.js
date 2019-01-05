@@ -45,9 +45,8 @@ export function fetchBookEpic(action$, state$) {
   return action$.pipe(
     ofType(FETCH_BOOK),
     mergeMap(action=>{
-      console.log('fetchBookEpic')
-      return ajax(HOST + '/book/' + action.bookId)
-          .map(response => receiveBook(action.name, response.response))
+      return axios.get(HOST + '/book/' + action.bookId)
+          .then(response => receiveBook(action.name, response.data))
     })
   )
 }

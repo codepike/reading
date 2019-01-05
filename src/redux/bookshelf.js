@@ -52,26 +52,10 @@ export function fetchBooksEpic(action$, state$) {
   return action$.pipe(
     ofType(FETCH_BOOKS),
     mergeMap(action=>{
-      return ajax(HOST + '/book')
-          .map(res => receiveBooks(res.response))
-          .catch(error => fetchBookFailed(error))
+      return axios.get(HOST + '/book')
+          .then(res => receiveBooks(res.data))
     })
   )
-}
-
-export function fetchBookEpic1(action$, state$) {
-  return action$.pipe(
-    ofType(FETCH_BOOKS),
-    mergeMap(action=>{
-
-      const url = 'http://planet-env.3wypf3dzzp.us-east-2.elasticbeanstalk.com/book'
-
-      return ajax(url)
-        .map(response=> receiveBooks(response))
-        .catch(error=>Observable.of(receiveBooks(error)))
-    }
-  )
-)
 }
 
 export default bookshelfReducer;
