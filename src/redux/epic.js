@@ -10,7 +10,6 @@ const rootEpic = combineEpics(
   fetchUserEpic,
   fetchBookEpic,
   fetchBooksEpic,
-
 );
 
 export default rootEpic;

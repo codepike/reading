@@ -21,7 +21,7 @@ class Editor extends React.Component {
   render() {
     console.log("enter location", this.props);
 
-    const {id, title, isbn, author, year, description} = this.props.edit.book;
+    const {id, title, series, isbn, author, year, description} = this.props.edit.book;
 
     return (
       <Container>
@@ -37,6 +37,12 @@ class Editor extends React.Component {
               <FormGroup>
                 <Label for="title">Enter Title</Label>
                 <Input id="title" placeholder="" value={title}
+                  onChange = {(event) => {this.props.onInputChange(event)}}/>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="series">Enter Series</Label>
+                <Input id="series" placeholder="" value={series}
                   onChange = {(event) => {this.props.onInputChange(event)}}/>
               </FormGroup>
 

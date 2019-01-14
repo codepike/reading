@@ -7,7 +7,6 @@ import { Button, Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle, Col, Container, Input, Media, Row } from 'reactstrap';
 import { fetchBooks } from '../redux/bookshelf'
 import GridView from '../components/GridView'
-import '../App.css'
 
 function RenderBook({book, onClick}) {
   return (
@@ -37,6 +36,8 @@ class Books extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.books);
 
     const gridView = this.props.books.books.map(book => {
       return (
