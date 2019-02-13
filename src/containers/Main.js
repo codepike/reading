@@ -11,6 +11,7 @@ import BooksView from './BookView';
 import BookScreen from './BookScreen'
 import Editor from './Editor'
 import Books from './Books'
+import UploadWritingScreen from './UploadWritingScreen'
 
 import {
   BrowserRouter as Router,
@@ -32,14 +33,13 @@ class Main extends React.Component {
   render() {
      return (
        <div>
-         <Header />
          <Switch>
            <Route path="/login" component = { SigninView } />
            <Route path="/signup" component = { SignUpView } />
            <Route exact path="/book/:id" component={BookScreen}/>
            <Route exact path="/edit/:id" component={Editor} />
            <Route exact path="/admin/manage" component={Editor} />
-           <Route path="/" component={ Books }/>
+           <Route path="/" component={ UploadWritingScreen }/>
          </Switch>
 
        </div>
